@@ -7,7 +7,7 @@ import json
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILL = ROOT / "skills" / "resume-rewrite"
+SKILL = ROOT / "skills" / "leo-resume-rewrite"
 PUBLIC_FILES = (
     "SKILL.md", "LICENSE", "requirements.txt", "agents/openai.yaml",
     "references/facts-and-writing.md", "references/role-research.md",
@@ -18,7 +18,7 @@ PUBLIC_FILES = (
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", type=Path, default=ROOT / "dist" / "resume-rewrite.zip")
+    parser.add_argument("--output", type=Path, default=ROOT / "dist" / "leo-resume-rewrite.zip")
     args = parser.parse_args()
     output = args.output.expanduser().resolve()
     payload = []
@@ -34,7 +34,7 @@ def main():
     output.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
         for name, data in sorted(payload):
-            info = zipfile.ZipInfo("resume-rewrite/" + name, date_time=(2020, 1, 1, 0, 0, 0))
+            info = zipfile.ZipInfo("leo-resume-rewrite/" + name, date_time=(2020, 1, 1, 0, 0, 0))
             info.compress_type = zipfile.ZIP_DEFLATED
             info.external_attr = 0o644 << 16
             archive.writestr(info, data)
