@@ -7,14 +7,14 @@
 从仓库根目录运行：
 
 ```sh
-python skills/resume-rewrite/scripts/render_resume_pdf.py \
+python skills/leo-resume-rewrite/scripts/render_resume_pdf.py \
   --markdown examples/fictional-resume.md \
   --output output/resume.pdf \
   --style plain \
   --font /path/to/licensed-static-font.ttf
 ```
 
-安装 ZIP 或复制 Skill 后，进入安装后的 `resume-rewrite` 文件夹运行：
+安装 ZIP 或复制 Skill 后，进入安装后的 `leo-resume-rewrite` 文件夹运行：
 
 ```sh
 python -m pip install -r requirements.txt

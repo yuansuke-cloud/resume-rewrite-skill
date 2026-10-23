@@ -18,7 +18,7 @@ from pypdf import PdfReader
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SCRIPT = ROOT / "skills" / "resume-rewrite" / "scripts" / "render_resume_pdf.py"
+SCRIPT = ROOT / "skills" / "leo-resume-rewrite" / "scripts" / "render_resume_pdf.py"
 SPEC = importlib.util.spec_from_file_location("resume_renderer", SCRIPT)
 renderer = importlib.util.module_from_spec(SPEC)
 sys.modules[SPEC.name] = renderer
