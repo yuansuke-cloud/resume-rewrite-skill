@@ -26,7 +26,36 @@
 
 ## 安装
 
-适用于能读取 `SKILL.md` 的 Agent。以 Codex 用户级目录为例，在终端执行：
+### 一条命令安装
+
+已安装 Node.js 22.20 或以上版本时，在终端执行：
+
+```bash
+npx skills add yuansuke-cloud/resume-rewrite-skill --skill resume-rewrite -g
+```
+
+按提示选择你使用的 Agent。`-g` 表示在当前用户的多个项目中使用；去掉它则安装到当前项目。使用 Codex 可以直接指定：
+
+```bash
+npx skills add yuansuke-cloud/resume-rewrite-skill --skill resume-rewrite -a codex -g
+```
+
+以上使用 Vercel 的 [skills CLI](https://github.com/vercel-labs/skills)，支持的宿主和安装位置见[官方列表](https://github.com/vercel-labs/skills/blob/main/docs/agents.md)。首次运行 `npx` 可能提示下载安装工具，随后按提示确认技能安装。
+
+### 把网址交给 Agent 安装
+
+如果你的 Agent 有 GitHub Skill 安装能力，可以直接发送：
+
+```text
+请安装这个 Skill：
+https://github.com/yuansuke-cloud/resume-rewrite-skill/tree/main/skills/resume-rewrite
+```
+
+这个链接指向完整 Skill 目录，包含排版脚本和参考文件。普通聊天工具仅打开链接不会自动安装；安装后在新一轮对话中使用，若宿主尚未识别则重新打开会话。
+
+### 手动安装
+
+不使用上述安装工具时，可以把完整技能目录复制到宿主支持的位置。以 Codex 安装器使用的用户级目录为例：
 
 ```bash
 git clone https://github.com/yuansuke-cloud/resume-rewrite-skill.git
