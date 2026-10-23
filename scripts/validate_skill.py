@@ -8,7 +8,7 @@ from urllib.parse import unquote, urlsplit
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILL = ROOT / "skills" / "resume-rewrite"
+SKILL = ROOT / "skills" / "leo-resume-rewrite"
 
 
 def validate():
@@ -28,7 +28,7 @@ def validate():
         errors.append("Skill description is required")
     ui = yaml.safe_load((SKILL / "agents" / "openai.yaml").read_text(encoding="utf-8"))
     interface = ui.get("interface", {})
-    if "$resume-rewrite" not in interface.get("default_prompt", ""):
+    if "$leo-resume-rewrite" not in interface.get("default_prompt", ""):
         errors.append("Default prompt must reference the skill")
     if not 25 <= len(interface.get("short_description", "")) <= 64:
         errors.append("UI short_description must be 25-64 characters")
