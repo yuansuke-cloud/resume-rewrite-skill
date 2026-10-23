@@ -1,4 +1,4 @@
-# 简历改写与排版 · Resume Rewrite
+# Leo-resume-rewrite · 简历改写与排版
 
 把原简历改成贴合目标岗位、事实清楚、能继续编辑的版本。支持岗位调研、按 JD 改写、局部调整，以及中文单页 A4 PDF。
 
@@ -31,13 +31,13 @@
 已安装 Node.js 22.20 或以上版本时，在终端执行：
 
 ```bash
-npx skills add yuansuke-cloud/resume-rewrite-skill --skill resume-rewrite -g
+npx skills add yuansuke-cloud/resume-rewrite-skill --skill leo-resume-rewrite -g
 ```
 
 按提示选择你使用的 Agent。`-g` 表示在当前用户的多个项目中使用；去掉它则安装到当前项目。使用 Codex 可以直接指定：
 
 ```bash
-npx skills add yuansuke-cloud/resume-rewrite-skill --skill resume-rewrite -a codex -g
+npx skills add yuansuke-cloud/resume-rewrite-skill --skill leo-resume-rewrite -a codex -g
 ```
 
 以上使用 Vercel 的 [skills CLI](https://github.com/vercel-labs/skills)，支持的宿主和安装位置见[官方列表](https://github.com/vercel-labs/skills/blob/main/docs/agents.md)。首次运行 `npx` 可能提示下载安装工具，随后按提示确认技能安装。
@@ -48,7 +48,7 @@ npx skills add yuansuke-cloud/resume-rewrite-skill --skill resume-rewrite -a cod
 
 ```text
 请安装这个 Skill：
-https://github.com/yuansuke-cloud/resume-rewrite-skill/tree/main/skills/resume-rewrite
+https://github.com/yuansuke-cloud/resume-rewrite-skill/tree/main/skills/leo-resume-rewrite
 ```
 
 这个链接指向完整 Skill 目录，包含排版脚本和参考文件。普通聊天工具仅打开链接不会自动安装；安装后在新一轮对话中使用，若宿主尚未识别则重新打开会话。
@@ -60,31 +60,41 @@ https://github.com/yuansuke-cloud/resume-rewrite-skill/tree/main/skills/resume-r
 ```bash
 git clone https://github.com/yuansuke-cloud/resume-rewrite-skill.git
 mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
-cp -R resume-rewrite-skill/skills/resume-rewrite   "${CODEX_HOME:-$HOME/.codex}/skills/"
+cp -R resume-rewrite-skill/skills/leo-resume-rewrite   "${CODEX_HOME:-$HOME/.codex}/skills/"
 ```
 
-如果目标目录已有同名 Skill，先比较并备份自己的版本。也可下载 [Releases](https://github.com/yuansuke-cloud/resume-rewrite-skill/releases) 中的 ZIP，把其中的 `resume-rewrite` 文件夹放入 Agent 的技能目录。
+如果目标目录已有同名 Skill，先比较并备份自己的版本。也可下载[当前版本源码 ZIP](https://github.com/yuansuke-cloud/resume-rewrite-skill/archive/refs/heads/main.zip)，把其中 `skills/leo-resume-rewrite` 文件夹放入 Agent 的技能目录。
 
 ## 使用
+
+安装后可以直接说：
+
+```text
+Leo-resume-rewrite帮我修改简历
+```
+
+展示名为 `Leo-resume-rewrite`；安装标识与显式调用名使用小写 `leo-resume-rewrite`。若需要明确指定 Skill，可以说 `使用 $leo-resume-rewrite 帮我修改简历`。
+
+已安装旧版 `resume-rewrite` 的用户，需要重新安装新版；先备份自行修改的内容，再移除旧版，避免重复出现。
 
 提供原简历和目标岗位即可；有已确认的当前稿或参考版式时一并说明。
 
 ```text
-使用 $resume-rewrite，先研究这个岗位，再根据我的原简历优化内容。
+使用 $leo-resume-rewrite，先研究这个岗位，再根据我的原简历优化内容。
 不要补造业绩，缺失的关键事实单独列出。
 ```
 
 ```text
-使用 $resume-rewrite，只修改个人总结里的 AI 应用描述。
+使用 $leo-resume-rewrite，只修改个人总结里的 AI 应用描述。
 以我提供的实际使用经历为准，其他段落与日期保持不变。
 ```
 
 ```text
-使用 $resume-rewrite，把这份已确认的文字稿排成一页 PDF。
+使用 $leo-resume-rewrite，把这份已确认的文字稿排成一页 PDF。
 使用 classic 样式，不添加照片，不改正文。
 ```
 
-Skill 入口：[SKILL.md](skills/resume-rewrite/SKILL.md)。用户要求文件时会继续制作；只要文字时不会额外生成一套报告。
+Skill 入口：[SKILL.md](skills/leo-resume-rewrite/SKILL.md)。用户要求文件时会继续制作；只要文字时不会额外生成一套报告。
 
 ## 单独运行 PDF 脚本
 
@@ -97,12 +107,12 @@ python3 -m venv .venv
 # macOS / Linux
 source .venv/bin/activate
 # Windows PowerShell: .venv\Scripts\Activate.ps1
-python -m pip install -r skills/resume-rewrite/requirements.txt
+python -m pip install -r skills/leo-resume-rewrite/requirements.txt
 
-python skills/resume-rewrite/scripts/render_resume_pdf.py   --markdown examples/fictional-resume.md   --output output/resume.pdf   --style plain   --font /path/to/chinese-font.ttf
+python skills/leo-resume-rewrite/scripts/render_resume_pdf.py   --markdown examples/fictional-resume.md   --output output/resume.pdf   --style plain   --font /path/to/chinese-font.ttf
 ```
 
-使用 `--style classic` 切换灰色弧顶；只有需要本人照片时才提供 `--photo /path/to/photo.jpg`。照片不随本仓库提供。输入格式、字体与完整选项见[脚本说明](skills/resume-rewrite/references/renderer-contract.md)。
+使用 `--style classic` 切换灰色弧顶；只有需要本人照片时才提供 `--photo /path/to/photo.jpg`。照片不随本仓库提供。输入格式、字体与完整选项见[脚本说明](skills/leo-resume-rewrite/references/renderer-contract.md)。
 
 脚本专注单页 A4，正文不低于10pt，放不下会停止且不覆盖旧 PDF。长履历可以精简或改用多页排版工具。单列与可提取文字不等于通过所有招聘系统的解析或评分。
 
