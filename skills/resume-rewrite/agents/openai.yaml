@@ -1,4 +1,0 @@
-interface:
-  display_name: "简历改写与排版"
-  short_description: "按目标岗位核对并改写中文简历，保留真实经历与最新修改，按需制作 PDF"
-  default_prompt: "使用 $resume-rewrite，结合我的原简历和目标岗位优化内容，保留已确认事实，列出影响投递的待确认项。"
