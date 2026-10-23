@@ -21,12 +21,12 @@
 fonttools varLib.instancer /path/to/NotoSansSC-VF.ttf wght=400 \
   --output /path/to/NotoSansSC-Regular.ttf
 
-python skills/resume-rewrite/scripts/render_resume_pdf.py \
+python skills/leo-resume-rewrite/scripts/render_resume_pdf.py \
   --markdown examples/fictional-resume.md \
   --output docs/plain-demo.pdf --style plain \
   --font /path/to/NotoSansSC-Regular.ttf
 
-python skills/resume-rewrite/scripts/render_resume_pdf.py \
+python skills/leo-resume-rewrite/scripts/render_resume_pdf.py \
   --markdown examples/fictional-resume.md \
   --output docs/classic-demo.pdf --style classic \
   --font /path/to/NotoSansSC-Regular.ttf
