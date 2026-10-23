@@ -1,0 +1,3 @@
+-r skills/resume-rewrite/requirements.txt
+PyYAML>=6.0,<7
+fonttools>=4.0,<5
